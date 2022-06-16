@@ -1,0 +1,19 @@
+https://leetcode.com/problems/contains-duplicate/
+
+
+#include <bits/stdc++.h>
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        int i,flag=0;
+       map <int,int> helo;
+        for(i=0;i<nums.size();++i){
+            if(helo[nums[i]])
+                return true;
+             helo[nums[i]]++;
+        }
+     
+            return false;
+    }
+    
+};
