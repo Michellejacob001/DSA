@@ -1,0 +1,21 @@
+https://leetcode.com/problems/intersection-of-two-arrays-ii/
+
+class Solution {
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        int i,j;
+        map <int,int> yolo;
+        vector <int> ret;
+        for(i=0;i<nums1.size();++i){
+            yolo[nums1[i]]++;}
+            for(j=0;j<nums2.size();++j){
+                if(yolo[nums2[j]]>0)
+                {
+                    ret.push_back(nums2[j]);
+                    --yolo[nums2[j]];
+                }
+            
+        }
+        return ret;
+    }
+};
