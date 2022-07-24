@@ -1,0 +1,36 @@
+https://www.geeksforgeeks.org/find-maximum-sum-triplets-array-j-k-ai-aj-ak/
+
+// C++ program to find maximum triplet sum
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to calculate maximum triplet sum
+int maxTripletSum(int arr[], int n)
+{
+	int j,i=0,sum=0,max1=INT_MIN,max2=INT_MIN,ans=0,k;
+  for(j=1;j<n-1;++j){
+    for(i=0;i<j;++i){
+      
+      if(arr[i]<arr[j]){
+        max1=max(max1,arr[i]);
+        sum=max1+arr[j];
+    
+  }}
+    for(k=j+1;k<n;++k){
+      if(arr[k]>arr[j]){
+        max2=max(max2,arr[k]);
+        sum+=max2;
+      }}
+  }
+  ans=max(sum,ans);
+	return ans;
+}
+
+// Driver code
+int main()
+{
+	int arr[] = { 2, 5, 3, 1, 4, 9 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+	cout << maxTripletSum(arr, n);
+	return 0;
+}
