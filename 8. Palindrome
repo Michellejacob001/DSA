@@ -1,0 +1,15 @@
+https://leetcode.com/problems/palindrome-number/submissions/
+
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        long int i,n,k=x,y=0;
+  while(x>0){
+        n=x%10;
+        y=y*10+n;
+        
+            x=x/10;
+            
+    }
+        return y==k;}
+};
