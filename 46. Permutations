@@ -1,0 +1,39 @@
+https://leetcode.com/problems/permutations/
+
+class Solution {
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        
+        vector<int> ds;
+        vector<vector<int>> result;
+        int freq[nums.size()];
+        int ind;
+         for(ind=0;ind<nums.size();++ind)
+             freq[ind]=0;
+        spp(0,nums,ds,result,freq);
+        
+        return result;
+        
+    }
+    
+    void spp(int ind, vector<int>& nums,  vector<int>& ds, vector<vector<int>>& result, int freq[]){
+        
+if(ds.size()==nums.size()){
+              result.push_back(ds);
+            return;
+        }
+         
+        for(ind=0;ind<nums.size();++ind){
+            
+            if(!freq[ind]){
+            ds.push_back(nums[ind]);
+                freq[ind]=1;
+              spp(ind+1,nums,ds,result,freq);
+            
+                freq[ind]=0;
+            ds.pop_back();
+            }
+        }
+     
+    }
+};
