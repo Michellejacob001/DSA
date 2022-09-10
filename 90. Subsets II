@@ -1,0 +1,32 @@
+https://leetcode.com/problems/subsets-ii/a
+
+class Solution {
+public:
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        vector<vector<int>> result;
+        vector<int> ds;
+       // result.push_back(ds);
+        sort(nums.begin(),nums.end()); //if no rep then sort and do
+        spp(0,nums,result,ds);
+        return result;
+    }
+    
+    void spp(int ind, vector<int>& nums, vector<vector<int>>& result, vector<int> ds){
+        int i,j;
+       
+            result.push_back(ds);
+            
+    
+        for(i=ind;i<nums.size();++i){
+          if(i>ind && nums[i]==nums[i-1])
+              continue;
+             ds.push_back(nums[i]);
+            spp(i+1, nums, result, ds);
+            ds.pop_back();
+                 
+            
+        }
+             //   spp(ind+1, nums, result, ds);
+        }
+    
+};
