@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> recoverOrder(vector<int>& order, vector<int>& friends) {
+        vector<int> arr;
+        vector<int> dum;
+        for(int i=0; i < order.size();++i){
+             for(int j=0; j < friends.size();++j){
+                if(order[i]==friends[j]){
+                    arr.push_back(i);
+                }
+             }
+        }
+          for(int j=0; j < arr.size();++j){
+                
+                    dum.push_back(order[arr[j]]);
+                }
+                return dum;
+
+    }
+
+};
